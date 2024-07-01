@@ -1,9 +1,9 @@
 @extends('admin.layouts.app')
 @section('content')
-    {{-- <div class="d-flex flex-direction-row justify-content-end mb-3">
-        <input class="form-control me-2 w-25" id="search" type="search" placeholder="Cari" aria-label="Search">
+    <div class="d-flex flex-direction-row justify-content-end mb-3">
+        <input class="form-control me-2 w-25" id="search" type="search" placeholder="Search" aria-label="Search">
     </div>
-    <div class="toast align-items-center text-bg-success border-0 " id="toast" data-delay="3000" role="alert"
+    {{-- <div class="toast align-items-center text-bg-success border-0 " id="toast" data-delay="3000" role="alert"
         aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
             <div class="toast-body text-white fs-5">
@@ -13,14 +13,17 @@
                 aria-label="Close"></button>
         </div>
     </div> --}}
-    <a class="btn btn-primary" href="{{ route('category.create') }}">Create Category</a>
+    <div class="d-flex flex-row justify-content-between">
+        <h3>Course Category</h3>
+        <a class="btn btn-primary" href="{{ route('category.create') }}">Create Category</a>
+    </div>
     <table class="table mt-3">
         <thead>
             <tr class="fw-bold">
                 <th scope="col">No</th>
-                <th scope="col">Nama Kategori</th>
-                <th scope="col">Deskripsi</th>
-                <th scope="col">Aksi</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
                 <th scope="col"> </th>
             </tr>
         </thead>
@@ -47,15 +50,14 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p class="fs-5">Apakah kamu yakin ingin menghapus data ini?</p>
+                                        <p class="fs-5">Are you sure you want to delete this data?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-success"
-                                            data-bs-dismiss="modal">Tidak</button>
+                                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
                                         <form action="{{ route('category.destroy', $item->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Ya! Saya yakin</button>
+                                            <button type="submit" class="btn btn-danger">Yes! Im sure</button>
                                         </form>
                                     </div>
                                 </div>
@@ -65,12 +67,12 @@
                 </tr>
             @endforeach
             <tr id="no-results" class="d-none">
-                <td colspan="5" class="text-center">Tidak ada hasil yang ditemukan</td>
+                <td colspan="5" class="text-center">Not Found</td>
             </tr>
         </tbody>
     </table>
-    {{-- <!-- Pagination Links -->
-    <div class="pagination-links">
+    <!-- Pagination Links -->
+    <div class="pagination-links pagination-lg">
         {{ $data->links() }}
     </div>
     <script>
@@ -99,7 +101,7 @@
             }
         }
     </script>
-    @if (session('success'))
+    {{-- @if (session('success'))
         <script>
             $(document).ready(function() {
                 $('#toast').toast('show');

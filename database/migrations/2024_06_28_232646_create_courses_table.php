@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('video');
-            $table->string('transcript');
-            $table->string('summary');
+            $table->string('transcript')->nullable();
+            $table->string('summary')->nullable();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = Category::all();
+        $data = Category::orderBy('updated_at', 'desc')->paginate(10);
         // dd($data);
         return view('admin/pages/CategoryManagement/show', compact('data'));
     }

@@ -8,14 +8,14 @@
                 <div class="card-body">
                     <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
                         <div class="mb-3 mb-sm-0">
-                            <h5 class="card-title fw-semibold">Sales Overview</h5>
+                            <h5 class="card-title fw-semibold">Total New Course</h5>
                         </div>
                         <div>
                             <select class="form-select">
-                                <option value="1">March 2023</option>
-                                <option value="2">April 2023</option>
-                                <option value="3">May 2023</option>
-                                <option value="4">June 2023</option>
+                                <option value="1">June 2024</option>
+                                <option value="2">July 2024</option>
+                                <option value="3">August 2024</option>
+                                <option value="4">September 2024</option>
                             </select>
                         </div>
                     </div>
@@ -29,10 +29,10 @@
                     <!-- Yearly Breakup -->
                     <div class="card overflow-hidden">
                         <div class="card-body p-4">
-                            <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
+                            <h5 class="card-title mb-9 fw-semibold">Total Course</h5>
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h4 class="fw-semibold mb-3">$36,358</h4>
+                                    <h4 class="fw-semibold mb-3">3</h4>
                                     <div class="d-flex align-items-center mb-3">
                                         <span
                                             class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
@@ -44,7 +44,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="me-4">
                                             <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                                            <span class="fs-2">2023</span>
+                                            <span class="fs-2">2024</span>
                                         </div>
                                         <div>
                                             <span
@@ -68,8 +68,8 @@
                         <div class="card-body">
                             <div class="row alig n-items-start">
                                 <div class="col-8">
-                                    <h5 class="card-title mb-9 fw-semibold"> Monthly Earnings </h5>
-                                    <h4 class="fw-semibold mb-3">$6,820</h4>
+                                    <h5 class="card-title mb-9 fw-semibold"> Total User </h5>
+                                    <h4 class="fw-semibold mb-3">12</h4>
                                     <div class="d-flex align-items-center pb-1">
                                         <span
                                             class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
@@ -83,7 +83,7 @@
                                     <div class="d-flex justify-content-end">
                                         <div
                                             class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
-                                            <i class="ti ti-currency-dollar fs-6"></i>
+                                            <i class="ti ti-user fs-6"></i>
                                         </div>
                                     </div>
                                 </div>
