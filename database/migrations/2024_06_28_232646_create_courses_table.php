@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('video');
-            $table->string('transcript')->nullable();
-            $table->string('summary')->nullable();
+            $table->text('transcript')->nullable();
+            $table->text('summary')->nullable();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });

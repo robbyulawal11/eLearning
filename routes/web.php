@@ -9,7 +9,9 @@ Route::get('/', function () {
     return view('user/layouts/app');
 });
 
-Route::get('/send-video/{id}', [CourseController::class, 'sendVideoFromDatabase'])->name('send.video');
+Route::get('/generate-transcript/{videoId}', [CourseController::class, 'generateTranscript']);
+Route::get('/generate-summary/{videoId}', [CourseController::class, 'generateSummary']);
+
 
 Route::middleware(['auth', Status::class])->prefix('/admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');

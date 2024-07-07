@@ -15,9 +15,10 @@
                 @endif
             </div>
             <div class="form-group mb-3">
-                <label>Description<span class="text-danger">*</span></label>
-                <input type="text" class="form-control @error('description') is-invalid @enderror"
-                    placeholder="Input description from category" name="description" value="{{ $data->description }}">
+                <label class="w-100" id="description">Description<span class="text-danger">*</span>
+                    <textarea rows="5" type="text" class="form-control @error('description') is-invalid @enderror"
+                        name="description" value="{{ $data->description }}">{{ $data->description }}</textarea>
+                </label>
                 @if ($errors->has('description'))
                     <p class="text-danger">{{ $errors->first('description') }}</p>
                 @endif

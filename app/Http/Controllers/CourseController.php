@@ -21,29 +21,57 @@ class CourseController extends Controller
         return view('admin/pages/CourseManagement/show', compact('data', 'category'));
     }
 
-    public function sendVideoFromDatabase($id)
+    public function generateTranscript($id)
     {
-        // Ambil data video dari database
-        $video = Course::findOrFail($id);
-        $videoName = $video->video;
-        // Dapatkan path video dari storage
-        $videoPath = Storage::disk('public')->path('videos/courses' . $videoName);
+        set_time_limit(300);
+        $video = Course::find($id);
 
-        dd($videoPath);
+        if (!$video) {
+            return response()->json(['error' => 'Video not found'], 404);
+        }
 
-        // Kirim permintaan POST ke API eksternal dengan file dan nama video
-        $response = Http::attach(
-            'video_url', file_get_contents($videoPath), basename($videoPath)
-        )->post('https://functionappai11.azurewebsites.net/api/myhttptrigger', [
+        $videoUrl = 'https://talentaairs8ccb.blob.core.windows.net/storage/Inertia-%20Newton’s%20First%20Law.mp4';
+
+        $response = Http::timeout(300)->get('https://functionappai11.azurewebsites.net/api/get-transcript', [
+            'video_url' => $videoUrl,
             'video_name' => $video->name,
         ]);
 
-        // Cek apakah permintaan berhasil
-        if ($response->successful()) {
-            return response()->json(['message' => 'Video uploaded successfully', 'data' => $response->json()]);
+        $transcript = $response->body();
+
+        return response($transcript);
+    }
+
+    public function generateSummary($id)
+    {
+        set_time_limit(600);
+        $video = Course::find($id);
+
+        if (!$video) {
+            return response()->json(['error' => 'Video not found'], 404);
         }
 
-        return response()->json(['error' => 'Failed to upload video'], 500);
+        $videoUrl = 'https://talentaairs8ccb.blob.core.windows.net/storage/Inertia-%20Newton’s%20First%20Law.mp4 ';
+
+        $response = Http::timeout(600)->get('https://functionappai11.azurewebsites.net/api/get-transcript', [
+            'video_url' => $videoUrl,
+            'video_name' => $video->name,
+        ]);
+
+        $transcript = $response->body();
+
+        $responseSummary = Http::timeout(300)->withBody($transcript, 'text/plain')->get('https://functionappai11.azurewebsites.net/api/get-summary', [
+            'prompt' => 'Create summary from the transcript',
+        ]);
+
+        $summary = $responseSummary->body();
+
+        // if ($video) {
+        //     $video->summary = $summary;
+        //     $video->save();
+        // }
+
+        return response($summary);
     }
 
     /**

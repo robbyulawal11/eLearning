@@ -48,7 +48,8 @@
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary d-flex align-items-center"><img class="me-2"
-                    src="{{ asset('assets/images/logos/favicon.png') }}" alt="logo">eLEARNING</h2>
+                    src="{{ asset('assets/images/logos/favicon.png') }}" alt="logo"><img
+                    src="{{ asset('assets/images/logos/logo.png') }}" height="40px" alt=""></h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -179,7 +180,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">Welcome to eLEARNING</h1>
+                    <h1 class="mb-4">Welcome to LearnDig</h1>
                     <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam
                         et eos. Clita erat ipsum et lorem et sit.</p>
                     <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam
@@ -232,7 +233,7 @@
                                 <img class="img-fluid" src="{{ asset('assetsUser/img/cat-1.jpg') }}" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                     style="margin: 1px;">
-                                    <h5 class="m-0">Web Design</h5>
+                                    <h5 class="m-0">SMP</h5>
                                     <small class="text-primary">49 Courses</small>
                                 </div>
                             </a>
@@ -242,7 +243,7 @@
                                 <img class="img-fluid" src="{{ asset('assetsUser/img/cat-2.jpg') }}" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                     style="margin: 1px;">
-                                    <h5 class="m-0">Graphic Design</h5>
+                                    <h5 class="m-0">SMA</h5>
                                     <small class="text-primary">49 Courses</small>
                                 </div>
                             </a>
@@ -252,7 +253,7 @@
                                 <img class="img-fluid" src="{{ asset('assetsUser/img/cat-3.jpg') }}" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                     style="margin: 1px;">
-                                    <h5 class="m-0">Video Editing</h5>
+                                    <h5 class="m-0">SD</h5>
                                     <small class="text-primary">49 Courses</small>
                                 </div>
                             </a>
@@ -265,7 +266,7 @@
                             src="{{ asset('assetsUser/img/cat-4.jpg') }}" alt="" style="object-fit: cover;">
                         <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                             style="margin:  1px;">
-                            <h5 class="m-0">Online Marketing</h5>
+                            <h5 class="m-0">College</h5>
                             <small class="text-primary">49 Courses</small>
                         </div>
                     </a>
@@ -305,7 +306,7 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small>(123)</small>
                             </div>
-                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                            <h5 class="mb-4">IPS - Pasar dan Fungsi Pasar</h5>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i
@@ -338,7 +339,7 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small>(123)</small>
                             </div>
-                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                            <h5 class="mb-4">Matematika - Pecahan</h5>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i
@@ -371,7 +372,7 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small>(123)</small>
                             </div>
-                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                            <h5 class="mb-4">Matematika - Persamaan Linear Dua Variabel</h5>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i

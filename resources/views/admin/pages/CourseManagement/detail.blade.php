@@ -21,43 +21,70 @@
         <div class="mb-3">
             <h6 class="fs-5 fw-semibold">Transcript This Course</h6>
 
-            <button class="btn btn-primary p-2" id="send-video-button" data-video-id="{{ $data->id }}">Generate
+            <button class="btn btn-primary p-2" id="generate-transcript-button" data-video-id="{{ $data->id }}">Generate
                 Transcript</button>
-            <div id="loading" style="display: none;">Loading, please wait...</div>
-            <div id="response-container"></div>
+            <hr>
+            <div id="loading-transcript" style="display: none;">Generating transcript, please wait...</div>
+            <div id="transcript-response-container"></div>
 
         </div>
         <div>
             <h6 class="fs-5 fw-semibold">Summary This Course</h6>
-            <p></p>
-            <button class="btn btn-primary p-2">Generate Summary</button>
+
+            <button class="btn btn-primary p-2" id="generate-summary-button" data-video-id="{{ $data->id }}">Generate
+                Summary</button>
+            <hr>
+            <div id="loading-summary" style="display: none;">Generating summary, please wait...</div>
+            <div id="summary-response-container"></div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('send-video-button').addEventListener('click', function() {
+            document.getElementById('generate-transcript-button').addEventListener('click', async function() {
                 var videoId = this.getAttribute('data-video-id');
 
                 // Tampilkan loading indicator
-                document.getElementById('loading').style.display = 'block';
-                document.getElementById('response-container').innerHTML = '';
+                document.getElementById('loading-transcript').style.display = 'block';
+                document.getElementById('transcript-response-container').innerHTML = '';
 
-                axios.get('/send-video/' + videoId)
-                    .then(function(response) {
-                        // Sembunyikan loading indicator
-                        document.getElementById('loading').style.display = 'none';
-                        // Tampilkan respons
-                        document.getElementById('response-container').innerHTML = JSON.stringify(
-                            response.data);
-                    })
-                    .catch(function(error) {
-                        // Sembunyikan loading indicator
-                        document.getElementById('loading').style.display = 'none';
-                        // Tampilkan pesan error
-                        document.getElementById('response-container').innerHTML =
-                        'Failed to send video';
+                try {
+                    var response = await axios.get('/generate-transcript/' + videoId, {
+                        timeout: 300000,
+                        responseType: 'text'
                     });
+                    console.log(response.data);
+                    document.getElementById('loading-transcript').style.display = 'none';
+                    document.getElementById('transcript-response-container').innerHTML = response.data;
+                } catch (error) {
+                    document.getElementById('loading-transcript').style.display = 'none';
+                    document.getElementById('transcript-response-container').innerHTML =
+                        'Failed to generate transcript';
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('generate-summary-button').addEventListener('click', async function() {
+                var videoId = this.getAttribute('data-video-id');
+
+                // Tampilkan loading indicator
+                document.getElementById('loading-summary').style.display = 'block';
+                document.getElementById('summary-response-container').innerHTML = '';
+
+                try {
+                    var response = await axios.get('/generate-summary/' + videoId, {
+                        timeout: 600000,
+                        responseType: 'text'
+                    });
+                    document.getElementById('loading-summary').style.display = 'none';
+                    document.getElementById('summary-response-container').innerHTML = response.data;
+                } catch (error) {
+                    document.getElementById('loading-summary').style.display = 'none';
+                    document.getElementById('summary-response-container').innerHTML =
+                        'Failed to generate summary';
+                }
             });
         });
     </script>
